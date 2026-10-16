@@ -33,6 +33,7 @@ const PORTFOLIO = {
         { icon: "fab fa-github", label: "GitHub" },
         { icon: "fas fa-database", label: "SQL" },
         { icon: "fab fa-figma", label: "Figma" },
+        { icon: "fas fa-vial", label: "Selenium" },
         { icon: "fas fa-robot", label: "AI (Learning)" },
         { icon: "fab fa-aws", label: "Cloud (Learning)" }
     ],
@@ -40,7 +41,12 @@ const PORTFOLIO = {
         {
             icon: "fas fa-code",
             title: "Programming Languages",
-            tags: ["Core Java", "JavaScript", "SQL"]
+            tags: ["Python", "Core Java", "JavaScript", "SQL"]
+        },
+        {
+            icon: "fas fa-vial",
+            title: "Testing & Automation",
+            tags: ["Selenium WebDriver", "PyTest", "Page Object Model (POM)", "HTML Reporting", "Test Automation"]
         },
         {
             icon: "fas fa-laptop-code",
@@ -50,46 +56,80 @@ const PORTFOLIO = {
         {
             icon: "fas fa-tools",
             title: "Tools & Platforms",
-            tags: ["Git", "GitHub", "VS Code", "Figma"]
+            tags: ["Git", "GitHub", "VS Code", "Figma", "Docker Basics"]
         },
         {
             icon: "fas fa-brain",
-            title: "Concepts",
-            tags: ["OOP", "SDLC", "Debugging", "Version Control", "REST APIs"]
+            title: "Concepts & Architecture",
+            tags: ["OOP", "SDLC", "Page Object Model", "REST APIs", "Debugging", "Version Control"]
         },
         {
             icon: "fas fa-robot",
             title: "Currently Learning",
-            tags: ["LangChain", "OpenAI API", "AWS Basics", "Docker", "Python"]
+            tags: ["LangChain", "OpenAI API", "AWS Basics", "Docker", "Agentic Workflows"]
         }
     ],
     projects: [
         {
-            emoji: "🚀",
+            emoji: "🧪",
+            image: "img-selenium.jpg",
             color: "green",
+            title: "Selenium Test Automation Framework",
+            tagline: "End-to-End Test Automation · Page Object Model",
+            description: "Built an end-to-end test automation framework that validates core web application workflows (login, search, and form submission) using Selenium WebDriver. The framework follows the Page Object Model (POM) design pattern, keeping page locators and actions separate from test logic, making the suite modular, maintainable, and extensible. Automated functional test cases run through PyTest with comprehensive HTML execution reports.",
+            highlights: [
+                "Designed a modular, reusable test architecture using the Page Object Model (POM)",
+                "Automated functional test cases for login (valid & invalid credentials), search, and form validation",
+                "Generated automated HTML test reports with pass/fail telemetry and execution times"
+            ],
+            tags: ["Python", "Selenium", "PyTest", "Page Object Model", "HTML Reports", "Automation"],
+            live: "#",
+            github: "https://github.com/Joel7x"
+        },
+        {
+            emoji: "🚀",
+            image: "img-sitekart.jpg",
+            color: "warm",
             title: "Sitekart.in",
             tagline: "Web agency for small businesses",
             description: "Founded and built a web development service that ships fast, responsive, SEO-friendly websites for small businesses. Real clients, real deadlines, real results.",
+            highlights: [
+                "Delivered production-ready client sites with high Google Lighthouse performance scores",
+                "Custom responsive layouts, tailored brand identities, and modern CSS animations",
+                "Integrated SEO best practices and fast static hosting pipelines"
+            ],
             tags: ["HTML/CSS", "JavaScript", "React", "Responsive", "SEO"],
             live: "https://sitekart.in/",
             github: "https://github.com/Joel7x"
         },
         {
             emoji: "🏥",
+            image: "img-sidhigiri.jpg",
             color: "cool",
             title: "Sidhigiri Institute Web System",
             tagline: "Institute web platform · Maintenance & dev",
             description: "Assisted in developing and maintaining web-based systems for Sidhigiri Nursing Institute. Handled testing, debugging, documentation, and deployment.",
+            highlights: [
+                "Maintained institutional portals, student schedules, and academic workflows",
+                "Structured Git collaborative workflows and bug-tracking routines",
+                "Conducted cross-browser functional testing and documentation updates"
+            ],
             tags: ["Web Dev", "Testing", "GitHub", "Documentation"],
             live: "#",
             github: "https://github.com/Joel7x"
         },
         {
             emoji: "⛓️",
-            color: "",
+            image: "img-blockchain.jpg",
+            color: "purple",
             title: "Blockchain Projects (GDSC)",
             tagline: "Smart contracts · Certified",
             description: "Built sample dApps and smart contracts as part of the GDSC blockchain certification program. Explored Solidity, Ethereum, and decentralized application patterns.",
+            highlights: [
+                "Authored Solidity smart contracts on Ethereum testnets",
+                "Integrated Web3 wallet interaction and dApp frontend components",
+                "Completed GDSC blockchain certification with distinguished practical tasks"
+            ],
             tags: ["Solidity", "Web3", "Ethereum", "GDSC"],
             live: "#",
             github: "https://github.com/Joel7x"
@@ -264,7 +304,7 @@ function useTheme() {
     const [theme, setTheme] = useState(() => {
         const saved = localStorage.getItem("portfolio-theme");
         if (saved) return saved;
-        return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        return "dark";
     });
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
@@ -406,6 +446,53 @@ function Hero() {
         };
     }, []);
 
+    const [activeTab, setActiveTab] = useState("agent.py");
+
+    const snippets = {
+        "agent.py": (
+            <>
+                <span className="code-line"><span className="code-keyword">from</span> <span className="code-var">langgraph</span> <span className="code-keyword">import</span> <span className="code-var">StateGraph</span></span>
+                <span className="code-line"><span className="code-keyword">from</span> <span className="code-var">openai</span> <span className="code-keyword">import</span> <span className="code-var">OpenAI</span></span>
+                <span className="code-line">&nbsp;</span>
+                <span className="code-line"><span className="code-keyword">class</span> <span className="code-method">JoelAgent</span>:</span>
+                <span className="code-line">    <span className="code-prop">role</span> = <span className="code-string">"Agentic AI Dev"</span></span>
+                <span className="code-line">    <span className="code-prop">stack</span> = [<span className="code-string">"LangGraph"</span>, <span className="code-string">"AWS"</span>, <span className="code-string">"Bedrock"</span>]</span>
+                <span className="code-line">&nbsp;</span>
+                <span className="code-line">    <span className="code-keyword">def</span> <span className="code-method">build</span>(<span className="code-prop">self</span>, idea):</span>
+                <span className="code-line">        <span className="code-keyword">return</span> <span className="code-method">deploy_autonomous</span>(idea)</span>
+                <span className="code-line">&nbsp;</span>
+                <span className="code-line"><span className="code-keyword">if</span> hire_me: <span className="code-method">ship</span>()</span>
+            </>
+        ),
+        "test_pom.py": (
+            <>
+                <span className="code-line"><span className="code-keyword">import</span> <span className="code-var">pytest</span></span>
+                <span className="code-line"><span className="code-keyword">from</span> <span className="code-var">selenium</span> <span className="code-keyword">import</span> <span className="code-var">webdriver</span></span>
+                <span className="code-line"><span className="code-keyword">from</span> <span className="code-var">pages.login_page</span> <span className="code-keyword">import</span> <span className="code-var">LoginPage</span></span>
+                <span className="code-line">&nbsp;</span>
+                <span className="code-line"><span className="code-keyword">class</span> <span className="code-method">TestAuthWorkflows</span>:</span>
+                <span className="code-line">    <span className="code-prop">@pytest.mark.smoke</span></span>
+                <span className="code-line">    <span className="code-keyword">def</span> <span className="code-method">test_user_flow</span>(<span className="code-prop">self</span>, driver):</span>
+                <span className="code-line">        page = <span className="code-method">LoginPage</span>(driver)</span>
+                <span className="code-line">        page.<span className="code-method">login_as</span>(<span className="code-string">"joel"</span>, <span className="code-string">"secure123"</span>)</span>
+                <span className="code-line">        <span className="code-keyword">assert</span> page.<span className="code-method">is_dashboard_loaded</span>()</span>
+            </>
+        ),
+        "cloud.tf": (
+            <>
+                <span className="code-line"><span className="code-keyword">resource</span> <span className="code-string">"aws_ecs_cluster"</span> <span className="code-string">"ai_core"</span> &#123;</span>
+                <span className="code-line">    <span className="code-prop">name</span> = <span className="code-string">"joel-agent-production"</span></span>
+                <span className="code-line">&#125;</span>
+                <span className="code-line">&nbsp;</span>
+                <span className="code-line"><span className="code-keyword">module</span> <span className="code-string">"serverless_pipeline"</span> &#123;</span>
+                <span className="code-line">    <span className="code-prop">source</span>    = <span className="code-string">"terraform-aws-modules/lambda/aws"</span></span>
+                <span className="code-line">    <span className="code-prop">runtime</span>   = <span className="code-string">"python3.11"</span></span>
+                <span className="code-line">    <span className="code-prop">handler</span>   = <span className="code-string">"agent.handler"</span></span>
+                <span className="code-line">&#125;</span>
+            </>
+        )
+    };
+
     return (
         <section className="hero" id="home">
             <div className="hero-grid">
@@ -439,7 +526,7 @@ function Hero() {
 
                     <p className="hero-description">
                         Computer Engineering student. Agentic-AI tinkerer. Cloud architect in training.
-                        Founder of <strong>Sitekart.in</strong> on the side. Currently building things that think for themselves.
+                        Test Automation engineer with Selenium & PyTest. Founder of <strong>Sitekart.in</strong> on the side.
                     </p>
 
                     <div className="hero-meta-rail">
@@ -491,7 +578,7 @@ function Hero() {
                 <div className="hero-visual">
                     <div className="float-chip chip-1"><i className="fas fa-robot"></i> Agentic AI</div>
                     <div className="float-chip chip-2"><i className="fab fa-aws"></i> Cloud Native</div>
-                    <div className="float-chip chip-3"><i className="fas fa-brain"></i> LLM Builder</div>
+                    <div className="float-chip chip-3"><i className="fas fa-vial"></i> Selenium & POM</div>
                     <div className="code-card" ref={cardRef}>
                         <div className="code-header">
                             <div className="code-dots">
@@ -499,21 +586,24 @@ function Hero() {
                                 <span className="code-dot yellow"></span>
                                 <span className="code-dot green"></span>
                             </div>
-                            <span className="code-title">agent.py</span>
+                            <div className="code-tabs">
+                                <button className={`code-tab-btn ${activeTab === "agent.py" ? "active" : ""}`} onClick={() => setActiveTab("agent.py")}>
+                                    <i className="fab fa-python"></i> agent.py
+                                </button>
+                                <button className={`code-tab-btn ${activeTab === "test_pom.py" ? "active" : ""}`} onClick={() => setActiveTab("test_pom.py")}>
+                                    <i className="fas fa-vial"></i> test_pom.py
+                                </button>
+                                <button className={`code-tab-btn ${activeTab === "cloud.tf" ? "active" : ""}`} onClick={() => setActiveTab("cloud.tf")}>
+                                    <i className="fab fa-aws"></i> cloud.tf
+                                </button>
+                            </div>
                         </div>
                         <div className="code-body">
-                            <span className="code-line"><span className="code-keyword">from</span> <span className="code-var">langgraph</span> <span className="code-keyword">import</span> <span className="code-var">StateGraph</span></span>
-                            <span className="code-line"><span className="code-keyword">from</span> <span className="code-var">openai</span> <span className="code-keyword">import</span> <span className="code-var">OpenAI</span></span>
-                            <span className="code-line">&nbsp;</span>
-                            <span className="code-line"><span className="code-keyword">class</span> <span className="code-method">JoelAgent</span>:</span>
-                            <span className="code-line">    <span className="code-prop">role</span> = <span className="code-string">"Agentic AI Dev"</span></span>
-                            <span className="code-line">    <span className="code-prop">stack</span> = [<span className="code-string">"LangGraph"</span>,</span>
-                            <span className="code-line">             <span className="code-string">"AWS"</span>, <span className="code-string">"Bedrock"</span>]</span>
-                            <span className="code-line">&nbsp;</span>
-                            <span className="code-line">    <span className="code-keyword">def</span> <span className="code-method">build</span>(<span className="code-prop">self</span>, idea):</span>
-                            <span className="code-line">        <span className="code-keyword">return</span> <span className="code-method">deploy</span>(idea)</span>
-                            <span className="code-line">&nbsp;</span>
-                            <span className="code-line"><span className="code-keyword">if</span> hire_me: <span className="code-method">ship</span>()</span>
+                            {snippets[activeTab]}
+                        </div>
+                        <div className="code-footer">
+                            <span className="code-status-pill"><span className="code-status-light"></span> Live {activeTab}</span>
+                            <span className="code-lang-tag">UTF-8 • Python 3.11</span>
                         </div>
                     </div>
                 </div>
@@ -673,10 +763,10 @@ function Skills() {
 function Projects() {
     const [filter, setFilter] = useState("all");
     const filters = [
-        { key: "all", label: "All" },
-        { key: "ai", label: "Agentic AI", match: ["LangChain", "LangGraph", "OpenAI", "GPT-4", "RAG"] },
-        { key: "cloud", label: "Cloud", match: ["AWS", "Azure", "Bedrock", "Lambda", "Serverless"] },
-        { key: "web", label: "Web (Vibe)", match: ["React", "Tailwind", "Next.js", "JavaScript"] }
+        { key: "all", label: "All Projects" },
+        { key: "qa", label: "QA & Automation", match: ["Selenium", "PyTest", "Automation", "Page Object Model", "HTML Reports", "Testing"] },
+        { key: "web", label: "Web Applications", match: ["React", "HTML/CSS", "JavaScript", "Responsive", "SEO", "Web Dev"] },
+        { key: "blockchain", label: "Web3 & Smart Contracts", match: ["Solidity", "Web3", "Ethereum", "GDSC"] }
     ];
 
     const visible = PORTFOLIO.projects.filter((p) => {
@@ -689,9 +779,9 @@ function Projects() {
         <section className="section projects" id="projects">
             <div className="container">
                 <div className="section-header reveal">
-                    <span className="section-eyebrow">// Work</span>
+                    <span className="section-eyebrow">// Work & Engineering</span>
                     <h2 className="section-title">Featured <span className="accent">projects</span></h2>
-                    <p className="section-subtitle">A mix of agents, cloud systems, and the occasional web side-quest.</p>
+                    <p className="section-subtitle">Real-world systems spanning automated QA frameworks, client web platforms, and smart contracts.</p>
                 </div>
                 <div className="filter-bar reveal">
                     {filters.map((f) => (
@@ -704,23 +794,43 @@ function Projects() {
                     {visible.map((p, i) => (
                         <div key={p.title} className="project-card reveal" style={{ transitionDelay: `${i * 0.08}s` }}>
                             <div className={`project-image ${p.color}`}>
-                                <div className="project-emoji">{p.emoji}</div>
+                                {p.image ? (
+                                    <>
+                                        <img src={p.image} alt={p.title} className="project-cover-img" loading="lazy" />
+                                        <div className="project-image-overlay"></div>
+                                        <span className="project-card-badge">{p.emoji}</span>
+                                    </>
+                                ) : (
+                                    <div className="project-emoji">{p.emoji}</div>
+                                )}
                             </div>
                             <div className="project-content">
-                                <h3>{p.title}</h3>
-                                <p style={{ color: "var(--accent-2)", fontFamily: "var(--font-mono)", fontSize: "0.78rem", marginBottom: "0.7rem" }}>{p.tagline}</p>
-                                <p>{p.description}</p>
+                                <div className="project-header-row">
+                                    <h3>{p.title}</h3>
+                                </div>
+                                <p className="project-tagline">{p.tagline}</p>
+                                <p className="project-description">{p.description}</p>
+                                {p.highlights && (
+                                    <div className="project-highlights">
+                                        <span className="highlights-label">Key Highlights</span>
+                                        <ul>
+                                            {p.highlights.map((h, idx) => (
+                                                <li key={idx}><i className="fas fa-check-circle"></i> <span>{h}</span></li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
                                 <div className="project-tags">
                                     {p.tags.map((t) => (<span key={t} className="project-tag">{t}</span>))}
                                 </div>
                                 <div className="project-links">
                                     {p.live && p.live !== "#" && (
-                                        <a href={p.live} target="_blank" rel="noreferrer" className="project-link" data-hover>
-                                            <i className="fas fa-external-link-alt"></i> Live
+                                        <a href={p.live} target="_blank" rel="noreferrer" className="project-link btn-link-primary" data-hover>
+                                            <i className="fas fa-external-link-alt"></i> Live Demo
                                         </a>
                                     )}
-                                    <a href={p.github} target="_blank" rel="noreferrer" className="project-link" data-hover>
-                                        <i className="fab fa-github"></i> Code
+                                    <a href={p.github} target="_blank" rel="noreferrer" className="project-link btn-link-code" data-hover>
+                                        <i className="fab fa-github"></i> View Code
                                     </a>
                                 </div>
                             </div>
